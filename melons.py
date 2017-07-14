@@ -1,5 +1,6 @@
 """Classes for melon orders."""
 from random import randint
+import datetime
 
 
 class AbstractMelonOrder(object):
@@ -15,6 +16,13 @@ class AbstractMelonOrder(object):
         self.tax = tax
 
     def get_base_price(self):
+
+        self.now = datetime.datetime.now()
+        print self.now
+
+        if self.now in datetime.time.hour(8, 11):
+    
+                self.get_base_price += 4
 
         self.base_price = randint(5, 9)
         return self.base_price
